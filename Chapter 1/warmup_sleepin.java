@@ -1,10 +1,23 @@
+import java.util.Scanner;
+
 public class warmup_sleepin {
 
+    
     public static void main(String[] args) {
-        // Call the static method sleepIn with parameters and print the results
-        System.out.println("sleepIn(false, false)-> " + sleepIn(false, false)); 
-        System.out.println("sleepIn(true, false)-> " + sleepIn(true, false));  
-        System.out.println("sleepIn(false, true)-> " + sleepIn(false, true));  
+        Scanner scanner = new Scanner(System.in);
+
+        
+        System.out.print("Is it Weekday? 'false' or 'true': ");   
+        boolean weekday = Boolean.parseBoolean(scanner.nextLine());    // Ang user ari mag input
+
+        System.out.print("Are you on vacation? 'false' or 'true': ");
+        boolean vacation = Boolean.parseBoolean(scanner.nextLine());      // Ang user ari mag input
+
+        // Call the static method sleepIn with the user input and print the result
+        boolean result = sleepIn(weekday, vacation);
+        System.out.println("Can you sleep? (" + weekday + ", " + vacation + ") -> " + result);
+        
+        scanner.close();
     }
     
     // It's a boolean because it has only two choices: true and false.
@@ -13,3 +26,4 @@ public class warmup_sleepin {
         return !weekday || vacation; // !weekday -> not weekday, || -> OR
     }
 }
+
